@@ -13,6 +13,7 @@ import mage.constants.Duration;
 import mage.constants.Layer;
 import mage.constants.Outcome;
 import mage.constants.SubLayer;
+import mage.filter.FilterPermanent;
 import mage.filter.common.FilterCreaturePermanent;
 import mage.game.Game;
 import mage.game.permanent.Permanent;
@@ -25,7 +26,7 @@ public class BecomesSubtypeAllEffect extends ContinuousEffectImpl {
 
     protected ArrayList<String> subtypes = new ArrayList();
     protected boolean loseOther; // loses other subtypes
-    protected FilterCreaturePermanent filter;
+    protected FilterPermanent filter;
 
     public BecomesSubtypeAllEffect(Duration duration, String subtype) {
         this(duration, createArrayList(subtype));
@@ -36,7 +37,7 @@ public class BecomesSubtypeAllEffect extends ContinuousEffectImpl {
     }
 
     public BecomesSubtypeAllEffect(Duration duration,
-            ArrayList<String> subtypes, FilterCreaturePermanent filter, boolean loseOther) {
+            ArrayList<String> subtypes, FilterPermanent filter, boolean loseOther) {
         super(duration, Outcome.Detriment);
         this.subtypes = subtypes;
         this.staticText = setText();
